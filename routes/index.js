@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 function authIsOwner(req, res) {
-  if (req.session.is_logined) {
+  if (req.user) {
     return true;
   } else {
     return false;
@@ -11,7 +11,7 @@ function authIsOwner(req, res) {
 
 function authStatusUI(req, res, uiInfo) {
   if (authIsOwner(req,res)) {
-    uiInfo.nickname = req.session.nickname;
+    uiInfo.nickname = req.user.nickname;
     uiInfo.link = 'http://localhost:3000/auth/logout_process';
     uiInfo.link_name = '로그아웃'
   }
