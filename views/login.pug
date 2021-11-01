@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    button(type="button" onclick="location.href='http://localhost:3000/'") 홈으로
+    p 로그인 테스트를 위한 #{title}
+
+    form(action="/auth/login_process" method="post")
+        table 
+            tr 
+                td ID
+                td 
+                    input(type="text" name="username")
+            tr
+                td PW 
+                td 
+                    input(type="password", name="password")
+            tr
+                td 
+                td(style="text-align:right") 
+                    input(type="submit" value="로그인")
+                    
